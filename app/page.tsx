@@ -20,6 +20,11 @@ import web4 from "../public/web/web4.png";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const router = useRouter()
+  var date = new Date().toLocaleDateString("en-US", {
+    "year": "numeric",
+    "month": "numeric"
+  });
 
 
   return (
@@ -104,7 +109,15 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <Footer />
+        
+      <footer>
+        <div className='flex justify-center text-6xl text-gray-800 gap-20 py-20 dark:text-gray-500'>
+        <motion.div whileHover={{ scale: [null, 1.5, 1.4] }} transition={{ duration: 0.3 }}><button onClick={() => router.push('https://github.com/Lelx')} ><AiFillGithub /></button></motion.div>
+        <motion.div whileHover={{ scale: [null, 1.5, 1.4] }} transition={{ duration: 0.3 }}><button onClick={() => router.push('https://discord.com/channels/@me')} ><BiLogoDiscordAlt /></button></motion.div>
+       </div>
+       <p className='text-center text-md py-5 font-concrete dark:text-gray-500'>&copy;All rights reserverd {date}</p>
+       </footer>
+
       </section>
     </main>
     </div>
@@ -113,23 +126,7 @@ export default function Home() {
 
 
 
-export function Footer() {
-  const router = useRouter()
-  var date = new Date().toLocaleDateString("en-US", {
-    "year": "numeric",
-    "month": "numeric"
-  });
 
-  return(
-    <footer>
-      <div className='flex justify-center text-6xl text-gray-800 gap-20 py-20 dark:text-gray-500'>
-        <motion.div whileHover={{ scale: [null, 1.5, 1.4] }} transition={{ duration: 0.3 }}><button onClick={() => router.push('https://github.com/Lelx')} ><AiFillGithub /></button></motion.div>
-        <motion.div whileHover={{ scale: [null, 1.5, 1.4] }} transition={{ duration: 0.3 }}><button onClick={() => router.push('https://discord.com/channels/@me')} ><BiLogoDiscordAlt /></button></motion.div>
-      </div>
-      <p className='text-center text-md py-5 font-concrete dark:text-gray-500'>&copy;All rights reserverd {date}</p>
-    </footer>
-  )
-}
 
 
 
